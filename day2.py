@@ -8,9 +8,7 @@ dirs = {'U': (0, -1), 'D': (0, 1), 'L': (-1, 0), 'R': (1, 0)}
 x, y = 1, 1
 
 # Transposed from the keypad in the problem to keep (x, y) indexing the same
-keypad = [['1', '4', '7'],
-          ['2', '5', '8'],
-          ['3', '6', '9']]
+keypad = ['147', '258', '369']
 combination = ''
 
 for line in instructions:
@@ -25,11 +23,7 @@ print 'The combination to the first lock is: {0}'.format(combination)
 
 
 """ Part 2 """
-keypad = [['_', '_', '5', '_', '_'],
-          ['_', '2', '6', 'A', '_'],
-          ['1', '3', '7', 'B', 'D'],
-          ['_', '4', '8', 'C', '_'],
-          ['_', '_', '9', '_', '_']]
+keypad = ['__5__', '_26A_', '137BD', '_48C_', '__9__']
 
 x, y = 0, 2
 combination = ''
@@ -40,6 +34,7 @@ for line in instructions:
         y_n = min(y + dy, 4) if y > 2 else max(y + dy, 0)
 
         # Ensures the same logic can be kept as before with a diamond keypad
+        print x_n, y_n
         if keypad[x_n][y_n] != '_':
             x, y = x_n, y_n
     combination += keypad[x][y]
