@@ -16,25 +16,21 @@ for r in rooms:
     characters = ''.join(split)
 
     # Count how often each character occurs
-    # i.e. count = {a: 5, b: 2, d:10}
     count = defaultdict(int)
     for c in characters:
         count[c] += 1
 
-    # Reverse the counting dictionary
-    # i.e. inv_count = {5: [a, b, c], 1: [e], 3: [y, d]}
+    # Invert the counting dictionary
     inv_count = defaultdict(list)
     for k, v in count.iteritems():
         inv_count[v].append(k)
 
-    # Go through the inv_count dictionary in order of highest occurrance, then
-    # sort the characters in the list in alphabetical order
+    # Go through in order of highest occurrance, then alphabetical order
     top_chars = []
     for occ in sorted(inv_count, reverse=True):
         for c in sorted(inv_count[occ]):
             top_chars.append(c)
 
-    # Only the first 5 characters in top_chars are relevant
     if top_chars[0:5] == checksum:
         total += sectorID
 print 'The summed sector IDs is {0}'.format(total)
@@ -56,7 +52,6 @@ for r in rooms:
 
     tstr = ' '.join(tlist)
 
-    # Weren't given an explicit name to look for, so just looks if 'north' is
-    # a substring. Turns out, there's only 1 that matches this
+    # Weren't given an explicit name to look for, so look for any 'north'
     if 'north' in tstr:
         print '{0} is in sector {1}'.format(tstr, sectorID)
