@@ -13,8 +13,7 @@ np_tri = np.array(tri)
 for sides in tri:
     h = max(sides)
     sides.remove(h)
-    if sum(sides) > h:
-        count += 1
+    count += (sum(sides) > h)
 
 print '{0} row triangles are valid'.format(count)
 
@@ -30,7 +29,6 @@ for i in range(n):
         sides = [l[j], l[j + 1], l[j + 2]]
         h = max(sides)
         sides.remove(h)
-        if sum(sides) > h:
-            count += 1
+        count += (sum(sides) > h)
 
 print '{0} column triangles are valid'.format(count)
