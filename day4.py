@@ -31,7 +31,8 @@ for r in rooms:
         for c in sorted(inv_count[occ]):
             top_chars.append(c)
 
-    total += sectorID * (top_chars[0:5] == checksum)
+    if top_chars[0:5] == checksum:
+        total += sectorID
 print 'The summed sector IDs is {0}'.format(total)
 
 
