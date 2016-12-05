@@ -16,20 +16,13 @@ for r in rooms:
     characters = ''.join(split)
 
     # Count how often each character occurs
-    count = defaultdict(int)
+    d = defaultdict(int)
     for c in characters:
-        count[c] += 1
+        d[c] += 1
 
-    # Invert the counting dictionary
-    inv_count = defaultdict(list)
-    for k, v in count.iteritems():
-        inv_count[v].append(k)
-
-    # Go through in order of highest occurrance, then alphabetical order
-    top_chars = []
-    for occ in sorted(inv_count, reverse=True):
-        for c in sorted(inv_count[occ]):
-            top_chars.append(c)
+    # Custom comparator adhering to problem 4 specifications
+    top_chars = sorted(d, cmp=lambda x, y: 1 if d[x] > d[y] else 1 if
+                       d[x] == d[y] and x < y else -1, reverse=True)
 
     if top_chars[0:5] == checksum:
         total += sectorID
