@@ -42,15 +42,13 @@ for r in rooms:
     split = r.split('-')
     sectorID = int(split.pop().strip()[0:3])
 
+    tstr = ''
     for words in split:
-        tword = ''
         for c in words:
             # ASCII magic. Uses modular wrapping for O(1) execution
             ascii = (ord(c) - ord('a') + sectorID % 26) % 26 + ord('a')
-            tword += chr(ascii)
-        tlist.append(tword)
-
-    tstr = ' '.join(tlist)
+            tstr += chr(ascii)
+        tstr += ' '
 
     # Weren't given an explicit name to look for, so look for any 'north'
     if 'north' in tstr:
