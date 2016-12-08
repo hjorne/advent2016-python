@@ -11,16 +11,18 @@ for i in instructions:
     if i[0] == 'rect':
         m, n = map(int, i[1].split('x'))
         screen[0:n, 0:m] = 1
+
     elif i[1] == 'row':
         row = int(i[2][2:])
         amount = int(i[-1])
-
         # Roll is a convenient numpy function that does exactly what's needed
         screen[row, :] = np.roll(screen[row, :], amount)
+
     elif i[1] == 'column':
         col = int(i[2][2:])
         amount = int(i[-1])
         screen[:, col] = np.roll(screen[:, col], amount)
+
 print '{0} of the pixels should be lit\n'.format(int(np.sum(screen)))
 
 

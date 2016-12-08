@@ -26,7 +26,7 @@ for outside, inside in IPs:
     inside_abba = contain_abba(inside)
     if outside_abba and not inside_abba:
         count += 1
-print count
+print '{0} IPs support TLS'.format(count)
 
 
 """ Part 2 """
@@ -53,4 +53,4 @@ for outside, inside in IPs:
     if ssl:
         count += 1
 
-print count
+print '{0} IPs support SSL'.format(count)

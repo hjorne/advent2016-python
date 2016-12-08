@@ -16,4 +16,4 @@ for i in range(len(transmission[0])):
     common_char = sorted(count, key=count.get)[0]
     message += common_char
 
-print message
+print "Error corrected version is '{0}'".format(message)
