@@ -12,12 +12,14 @@ def generate_branches(F, E, moves, prev_states):
         for dE in [-1, 1]:
             if E == 3 and dE == 1 or E == 0 and dE == -1:
                 continue
+            # The triple copy here may seem odd, but it's by far the fastest
             Fn = copy(F)
             Fn[E] = copy(F[E])
             Fn[E + dE] = copy(F[E + dE])
             Fn[E].remove(item_i)
             Fn[E + dE].add(item_i)
             if legal_state(Fn):
+                # Only immutable objects (tuples/frozensets) are hashable
                 hashable = (E + dE, tuple([frozenset(x) for x in Fn]))
                 if hashable not in prev_states:
                     prev_states.add(hashable)
