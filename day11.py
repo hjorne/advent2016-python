@@ -68,8 +68,8 @@ if __name__ == '__main__':
     F = [{'HM', 'LM'}, {'HG'}, {'LG'}, set()]
 
     # Part 1 input
-    # F = [{'PrG', 'PrM'}, {'CoG', 'CuG', 'RG', 'PlG'},
-    #      {'CoM', 'CuM', 'RM', 'PlM'}, set()]
+    F = [{'PrG', 'PrM'}, {'CoG', 'CuG', 'RG', 'PlG'},
+         {'CoM', 'CuM', 'RM', 'PlM'}, set()]
 
     # Part 2 input
     # F = [{'EG', 'EM', 'DG', 'DM', 'PrG', 'PrM'}, {'CoG', 'CuG', 'RG', 'PlG'},
